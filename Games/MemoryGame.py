@@ -16,9 +16,11 @@ def generate_sequence(difficulty):
         n = random.randint(1, 101)
         sequence_list.append(n)
     #show_sequence(sequence_list)
-    print(sequence_list, end='')
-    time.sleep(1)
-    hide_sequence()
+    for i in range(2):
+        print(sequence_list, end='\r')
+        time.sleep(1)
+
+   # hide_sequence()
     return sequence_list
 def get_list_from_user(difficulty):
     guess_string = input(f"Please, enter list of {int(difficulty) + 2} "
