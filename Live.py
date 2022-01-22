@@ -16,6 +16,9 @@ def welcome(name):
             ' Games (WoG).\nHere you can find many cool games to play.'
 
 def load_game():
+    '''
+    The function return user chosen game and the difficulty as list
+    '''
     games = ['Memory Game', 'Guess Game', 'Currency Roulette']
     description_game = {
         'Memory Game': 'a sequence of numbers will appear for 1 second and you have to guess it back',

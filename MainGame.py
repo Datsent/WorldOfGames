@@ -1,5 +1,6 @@
 from Live import load_game, welcome
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
+from Score import add_score
 class bcolors:
     '''
     Some colors for outputs
@@ -18,6 +19,7 @@ def results(user_choose):
         result = GuessGame.play(user_choose[1])
         if result[0]:
             print("You are " + bcolors.BOLD + bcolors.OKGREEN + "WINNER" + bcolors.ENDC)
+            add_score(user_choose[1])
         else:
             print(bcolors.FAIL + ":( LOOSER ):" + bcolors.ENDC)
             print(f"The number is {result[1]}")
@@ -25,6 +27,7 @@ def results(user_choose):
         result = MemoryGame.play(user_choose[1])
         if result[0]:
             print("You are " + bcolors.BOLD + bcolors.OKGREEN + "WINNER" + bcolors.ENDC)
+            add_score(user_choose[1])
         else:
             print(bcolors.FAIL + ":( LOOSER ):" + bcolors.ENDC)
             print(f"The number is {result[1]}")
@@ -34,6 +37,7 @@ def results(user_choose):
         if result[0]:
             print(f"The result is {result[1]} You are " + bcolors.BOLD + bcolors.OKGREEN
                   + "WINNER" + bcolors.ENDC)
+            add_score(user_choose[1])
         else:
             print(bcolors.FAIL + ":( LOOSER ):" + bcolors.ENDC)
             print(f"The number is {result[1]}")
