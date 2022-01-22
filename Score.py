@@ -1,4 +1,3 @@
-from os import path
 from Utils import *
 def add_score(difficulty):
     '''
@@ -11,6 +10,7 @@ def add_score(difficulty):
     score_file = open(SCORES_FILE_NAME, 'w')
     score_file.write(str(points_of_winning))
     score_file.close()
+    return points_of_winning
 
 if __name__ == '__main__':
     add_score('3')
