@@ -1,6 +1,7 @@
 from Live import load_game, welcome
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 from Score import add_score
+from Utils import *
 class bcolors:
     '''
     Some colors for outputs
@@ -42,8 +43,12 @@ def results(user_choose):
             print(bcolors.FAIL + ":( LOOSER ):" + bcolors.ENDC)
             print(f"The number is {result[1]}")
 def main():
+    clear_screen()
     print(welcome(input('Please, enter your name: ')))
     user_choose = load_game()
+    score_file = open(SCORES_FILE_NAME, 'w')
+    score_file.write('0')
+    score_file.close()
     print('Chosen Game is:', user_choose[0], '\nChosen Difficult is:', user_choose[1])
     results(user_choose)
     ask_for_continue = ""
@@ -52,8 +57,10 @@ def main():
         while ask_for_continue.isnumeric() is False or int(ask_for_continue) > 3 or int(ask_for_continue) <= 0:
             ask_for_continue = input('Wrong input, try again: ')  # Check correct input
         if ask_for_continue == '1':
+            clear_screen()
             results(user_choose)
         elif ask_for_continue == '2':
+            clear_screen()
             user_choose = load_game()
             results(user_choose)
         else:
