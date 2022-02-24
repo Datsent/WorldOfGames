@@ -1,4 +1,4 @@
-from Utils import *
+from Utils.Utils import *
 def add_score(difficulty):
     '''
     The function add score to txt file or create new score file.

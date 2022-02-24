@@ -1,10 +1,8 @@
-from Utils import *
-from Score import add_score
+from Utils.Utils import *
 from flask import Flask
-from flask import render_template, url_for
+from flask import render_template
 
 
-#print(score)
 
 app = Flask(__name__)
 @app.route('/score')

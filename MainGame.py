@@ -1,7 +1,7 @@
 from Live import load_game, welcome
 from Games import GuessGame, MemoryGame, CurrencyRouletteGame
 from Score import add_score
-from Utils import *
+from Utils.Utils import *
 class bcolors:
     '''
     Some colors for outputs
