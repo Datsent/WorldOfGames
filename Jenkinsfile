@@ -6,7 +6,7 @@ pipeline{
             steps{
                 script {
                     if (isUnix()==true){
-                        sh 'type README.md'
+                        sh 'cat README.md'
                     }
                     else{
                         bat 'type README.md'  
