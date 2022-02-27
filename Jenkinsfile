@@ -1,10 +1,10 @@
+properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/Datsent/WorldOfGames.git/')])
 pipeline{
     agent any
     stages{
         stage('Checkout git repository'){
             steps{
                 script {
-                    git 'https://github.com/Datsent/WorldOfGames.git'
                     if (isUnix()==true){
                         sh 'type README.md'
                     }
