@@ -18,7 +18,6 @@ pipeline{
             steps{
                 script {
                     if (isUnix()==true){
-                        sh 'sudo su -'
                         sh 'docker-compose build'
                     }
                     else{
