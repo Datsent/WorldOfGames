@@ -1,3 +1,2 @@
-selenium~=4.1.1
 Flask~=2.0.2
 CurrencyConverter~=0.16.6
