@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from Utils import URL
-from system import exit
+from sys import exit
 
 
 def test_scores_service(url):
