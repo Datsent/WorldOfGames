@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from Utils import URL
+from system import exit
 
 
 def test_scores_service(url):
@@ -13,9 +14,9 @@ def test_scores_service(url):
         return False
 def main_function():
     if test_scores_service(URL):
-        return '0'
+        return exit(0)
     else:
-        return '-1'
+        return exit(-1)
 
 if __name__ == '__main__':
     print(main_function())
