@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   web:
+    image: datsent/worldofgames
     container_name: WoG_WEB
     build: .
     ports:
