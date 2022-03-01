@@ -44,8 +44,7 @@ pipeline{
                 script {
                     if (isUnix()==true){
                         sh 'pip install -r Utils\\requirements.txt'
-                        sh 'cd Utils'
-                        sh 'python e2e.py'
+                        sh 'python Utils\\e2e.py'
                     }
                     else{
                         bat 'pip install -r Utils\\requirements.txt'
@@ -53,7 +52,54 @@ pipeline{
                     }
                 }
             }
-            
+        }
+        stage('Terminate Container'){
+            steps{
+                script {
+                    if (isUnix()==true){
+                        sh 'docker stop WoG_WEB'
+                    }
+                    else{
+                        bat 'docker stop WoG_WEB'
+                    }
+                }
+            }
+        }
+        stage('Delete Container'){
+            steps{
+                script {
+                    if (isUnix()==true){
+                        sh 'docker rm WoG_WEB'
+                    }
+                    else{
+                        bat 'docker rm WoG_WEB'
+                    }
+                }
+            }
+        }
+        stage('Push Image to DockerHub'){
+            steps{
+                script {
+                    if (isUnix()==true){
+                        sh 'docker push datsent/worldofgames'
+                    }
+                    else{
+                        bat 'docker push datsent/worldofgames'
+                    }
+                }
+            }
+        }
+        stage('Delete Image'){
+            steps{
+                script {
+                    if (isUnix()==true){
+                        sh 'docker rmi datsent/worldofgames'
+                    }
+                    else{
+                        bat 'docker rmi datsent/worldofgames'
+                    }
+                }
+            }
         }
     }
 }
