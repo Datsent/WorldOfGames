@@ -14,8 +14,10 @@ def test_scores_service(url):
         return False
 def main_function():
     if test_scores_service(URL):
+        print('Test PASSED')
         return exit(0)
     else:
+        print('Test FAILED')
         return exit(-1)
 
 if __name__ == '__main__':
