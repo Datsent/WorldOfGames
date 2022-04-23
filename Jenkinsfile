@@ -1,6 +1,9 @@
 properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/Datsent/WorldOfGames.git/')])
 pipeline{
     agent any
+    	environment {
+		DOCKERHUB_CREDENTIALS = credentials('test')
+	    }
 
     stages{
         stage('Checkout git repository'){
@@ -110,7 +113,7 @@ pipeline{
                             currentStage.result = "FAILURE"
                         }
                         else{
-                            sh 'docker login -u datsent -p 41059ee0-6713-43f5-9103-d9ed374533c0'                            
+                            sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'                            
                         }
                     }
                     else{
@@ -119,7 +122,7 @@ pipeline{
                             currentStage.result = "FAILURE"
                         }
                         else{
-                            bat 'docker login -u datsent -p 41059ee0-6713-43f5-9103-d9ed374533c0'                            
+                            bat 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'                            
                         }
                     }
                 }
