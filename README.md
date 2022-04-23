@@ -20,7 +20,6 @@ To deploy this project on docker container, use command:
 ```bash
   docker-compose up -d
 ```
-This will deploy container on local docker deamon.
 To play - use command:
 ```bash
 docker exec -it WoG_WEB sh
